@@ -1,0 +1,570 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080a08">
+  <meta name="description" content="NIHASH Lawn Care LLC provides dependable weekly and biweekly lawn maintenance in Parrish, Bradenton, Sarasota, Palmetto, Venice and surrounding areas.">
+  <title>NIHASH Lawn Care LLC | Weekly & Biweekly Lawn Maintenance</title>
+
+  <style>
+    :root{
+      --bg:#070907;
+      --bg2:#0d110d;
+      --card:#111611;
+      --ink:#f7f8f3;
+      --muted:#aeb7aa;
+      --line:rgba(255,255,255,.09);
+      --green:#b7ff14;
+      --green2:#8fe000;
+      --white:#ffffff;
+      --radius:24px;
+      --shadow:0 22px 70px rgba(0,0,0,.32);
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      background:var(--bg);
+      color:var(--ink);
+      line-height:1.55;
+      overflow-x:hidden;
+    }
+    img{display:block;max-width:100%}
+    a{color:inherit;text-decoration:none}
+    button{font:inherit}
+    .container{width:min(1180px,92vw);margin:0 auto}
+    .section{padding:100px 0}
+    .eyebrow{
+      display:inline-flex;align-items:center;gap:9px;
+      font-size:12px;font-weight:850;letter-spacing:.16em;text-transform:uppercase;
+      color:var(--green)
+    }
+    .eyebrow::before{
+      content:"";width:28px;height:2px;border-radius:99px;background:var(--green)
+    }
+    h1,h2,h3,p{margin-top:0}
+    h1,h2,h3{letter-spacing:-.04em}
+    h2{font-size:clamp(36px,5vw,62px);line-height:1.02;margin-bottom:18px}
+    p{color:var(--muted)}
+    .lead{font-size:clamp(17px,2vw,20px);max-width:720px}
+
+    /* NAV */
+    .nav-shell{
+      position:fixed;z-index:100;left:0;right:0;top:0;
+      background:linear-gradient(to bottom,rgba(7,9,7,.92),rgba(7,9,7,.72));
+      backdrop-filter:blur(16px);
+      border-bottom:1px solid var(--line);
+    }
+    .nav{
+      height:82px;display:flex;align-items:center;justify-content:space-between;gap:24px
+    }
+    .brand{display:flex;align-items:center;gap:13px}
+    .brand img{
+      width:142px;height:54px;object-fit:cover;object-position:center;border-radius:10px;
+      border:1px solid rgba(183,255,20,.2)
+    }
+    .nav-links{display:flex;align-items:center;gap:30px;font-size:14px;font-weight:750}
+    .nav-links a{color:#dfe5dc;transition:.2s ease}
+    .nav-links a:hover{color:var(--green)}
+    .nav-cta{display:flex;gap:10px;align-items:center}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:10px;
+      min-height:50px;padding:0 20px;border-radius:14px;
+      font-weight:850;border:1px solid transparent;transition:.2s ease;
+      cursor:pointer
+    }
+    .btn:hover{transform:translateY(-2px)}
+    .btn-green{background:var(--green);color:#0a0b09;box-shadow:0 10px 30px rgba(183,255,20,.13)}
+    .btn-dark{background:#151915;border-color:var(--line);color:#fff}
+    .btn-light{background:#fff;color:#0c100b}
+    .menu-btn{display:none;background:transparent;color:white;border:1px solid var(--line);width:46px;height:46px;border-radius:13px}
+
+    /* HERO */
+    .hero{
+      min-height:820px;padding-top:132px;position:relative;display:flex;align-items:center;
+      background:
+        radial-gradient(circle at 85% 18%,rgba(183,255,20,.13),transparent 28%),
+        radial-gradient(circle at 10% 80%,rgba(183,255,20,.07),transparent 24%),
+        var(--bg);
+    }
+    .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:66px;align-items:center}
+    .hero h1{
+      font-size:clamp(54px,7.3vw,96px);line-height:.93;margin:17px 0 24px;max-width:790px
+    }
+    .hero h1 .accent{color:var(--green)}
+    .hero-copy{font-size:clamp(18px,2vw,21px);max-width:660px}
+    .hero-actions{display:flex;gap:13px;flex-wrap:wrap;margin-top:30px}
+    .hero-note{display:flex;gap:18px;flex-wrap:wrap;margin-top:28px;color:#ccd4c9;font-size:13px;font-weight:750}
+    .hero-note span{display:flex;align-items:center;gap:8px}
+    .dot{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 0 5px rgba(183,255,20,.08)}
+    .hero-visual{position:relative}
+    .photo-frame{
+      position:relative;border-radius:30px;overflow:hidden;border:1px solid var(--line);
+      box-shadow:var(--shadow);aspect-ratio:4/5;background:#111
+    }
+    .photo-frame img{width:100%;height:100%;object-fit:cover}
+    .photo-frame::after{
+      content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(5,6,5,.62),transparent 43%)
+    }
+    .float-card{
+      position:absolute;left:-34px;bottom:30px;z-index:4;
+      width:min(310px,78%);padding:20px;border-radius:18px;
+      background:rgba(12,16,12,.93);border:1px solid rgba(183,255,20,.28);
+      backdrop-filter:blur(14px);box-shadow:var(--shadow)
+    }
+    .float-card strong{display:block;font-size:18px}
+    .float-card span{display:block;color:var(--muted);font-size:13px;margin-top:4px}
+    .hero-tag{
+      position:absolute;top:22px;right:-22px;z-index:5;background:var(--green);color:#0b0d0a;
+      font-weight:900;padding:14px 18px;border-radius:14px;transform:rotate(2deg);box-shadow:var(--shadow)
+    }
+
+    /* TRUST */
+    .trust{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:#090c09}
+    .trust-grid{display:grid;grid-template-columns:repeat(4,1fr)}
+    .trust-item{padding:26px 22px;border-right:1px solid var(--line)}
+    .trust-item:last-child{border-right:0}
+    .trust-item strong{display:block;font-size:15px;color:#fff}
+    .trust-item span{display:block;font-size:12px;color:var(--muted);margin-top:5px}
+
+    /* SERVICES */
+    .section-head{display:flex;justify-content:space-between;gap:40px;align-items:end;margin-bottom:46px}
+    .section-head > div:first-child{max-width:780px}
+    .section-head p{max-width:460px}
+    .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .service-card{
+      padding:30px;min-height:245px;border:1px solid var(--line);border-radius:var(--radius);
+      background:linear-gradient(180deg,#111611,#0d110d);position:relative;overflow:hidden
+    }
+    .service-card::after{
+      content:"";position:absolute;right:-45px;top:-45px;width:130px;height:130px;border-radius:50%;
+      background:rgba(183,255,20,.08)
+    }
+    .service-num{font-size:12px;color:var(--green);font-weight:900;letter-spacing:.13em}
+    .service-card h3{font-size:25px;margin:50px 0 10px}
+    .service-card p{font-size:15px;margin:0}
+
+    /* GALLERY */
+    .work{background:#f3f5ef;color:#0a0d09}
+    .work p{color:#626a5e}
+    .work .eyebrow{color:#5d8700}
+    .gallery{
+      display:grid;grid-template-columns:1.25fr .75fr .75fr;grid-template-rows:270px 270px;gap:16px
+    }
+    .gallery-card{
+      position:relative;border-radius:22px;overflow:hidden;background:#ddd
+    }
+    .gallery-card:first-child{grid-row:1/3}
+    .gallery-card img{width:100%;height:100%;object-fit:cover;transition:transform .45s ease}
+    .gallery-card:hover img{transform:scale(1.035)}
+    .gallery-card::after{
+      content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.47),transparent 47%)
+    }
+    .gallery-label{
+      position:absolute;z-index:2;left:18px;bottom:16px;color:#fff;font-weight:850;font-size:14px
+    }
+
+    /* WHY */
+    .why-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:70px;align-items:start}
+    .why-stack{display:grid;gap:14px}
+    .why-item{
+      display:grid;grid-template-columns:50px 1fr;gap:16px;padding:22px;border:1px solid var(--line);
+      border-radius:18px;background:#0d110d
+    }
+    .why-icon{
+      width:50px;height:50px;border-radius:14px;display:grid;place-items:center;background:rgba(183,255,20,.1);
+      color:var(--green);font-weight:900
+    }
+    .why-item h3{margin:1px 0 4px;font-size:19px}
+    .why-item p{margin:0;font-size:14px}
+
+    /* AREAS */
+    .areas{
+      background:
+        linear-gradient(110deg,rgba(183,255,20,.08),transparent 35%),
+        #0b0e0b;border-top:1px solid var(--line);border-bottom:1px solid var(--line)
+    }
+    .area-grid{display:grid;grid-template-columns:1fr .9fr;gap:70px;align-items:center}
+    .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+    .chip{padding:11px 15px;border-radius:999px;border:1px solid rgba(183,255,20,.24);background:rgba(183,255,20,.055);font-weight:800;font-size:13px}
+    .estimate-box{
+      padding:34px;border-radius:28px;background:var(--green);color:#0b0d0a;box-shadow:var(--shadow)
+    }
+    .estimate-box h3{font-size:34px;line-height:1.03;margin-bottom:12px}
+    .estimate-box p{color:#263018}
+    .estimate-box .btn{width:100%;margin-top:12px}
+
+    /* CTA */
+    .cta{padding:110px 0;text-align:center;background:#f3f5ef;color:#0a0d09}
+    .cta .eyebrow{color:#5d8700}
+    .cta h2{max-width:860px;margin:14px auto 18px}
+    .cta p{color:#61685d;font-size:18px;max-width:700px;margin:0 auto 28px}
+    .cta-actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+
+    /* FOOTER */
+    footer{padding:44px 0 30px;background:#050705}
+    .footer-grid{display:grid;grid-template-columns:1.2fr .8fr .8fr;gap:40px;padding-bottom:30px}
+    .footer-logo{width:165px;border-radius:10px;margin-bottom:15px}
+    footer h4{margin:0 0 12px;font-size:13px;text-transform:uppercase;letter-spacing:.12em;color:#fff}
+    footer p,footer a{font-size:14px;color:#9fa79b}
+    footer a:hover{color:var(--green)}
+    .copyright{border-top:1px solid var(--line);padding-top:22px;color:#70786c;font-size:12px}
+
+    /* MOBILE */
+    .mobile-call{
+      display:none;position:fixed;z-index:120;bottom:16px;left:50%;transform:translateX(-50%);
+      width:min(92vw,430px);background:var(--green);color:#090b08;font-weight:900;text-align:center;
+      padding:15px 18px;border-radius:15px;box-shadow:0 18px 50px rgba(0,0,0,.36)
+    }
+
+    @media(max-width:960px){
+      .nav-links{display:none}
+      .menu-btn{display:inline-grid;place-items:center}
+      .nav-cta .btn-dark{display:none}
+      .hero{min-height:auto;padding:130px 0 85px}
+      .hero-grid,.why-grid,.area-grid{grid-template-columns:1fr}
+      .hero-grid{gap:45px}
+      .hero-visual{max-width:650px}
+      .float-card{left:18px}
+      .hero-tag{right:18px}
+      .trust-grid{grid-template-columns:1fr 1fr}
+      .trust-item:nth-child(2){border-right:0}
+      .trust-item:nth-child(-n+2){border-bottom:1px solid var(--line)}
+      .services-grid{grid-template-columns:1fr 1fr}
+      .gallery{grid-template-columns:1fr 1fr;grid-template-rows:360px 240px 240px}
+      .gallery-card:first-child{grid-column:1/3;grid-row:auto}
+    }
+    @media(max-width:640px){
+      .section{padding:76px 0}
+      .nav{height:72px}
+      .brand img{width:121px;height:46px}
+      .nav-cta .btn-green{display:none}
+      .hero{padding-top:108px}
+      .hero h1{font-size:50px}
+      .hero-actions .btn{width:100%}
+      .hero-note{gap:12px;font-size:12px}
+      .hero-tag{top:15px;font-size:12px;padding:11px 13px}
+      .float-card{bottom:15px;left:15px}
+      .trust-grid{grid-template-columns:1fr}
+      .trust-item{border-right:0;border-bottom:1px solid var(--line)!important}
+      .trust-item:last-child{border-bottom:0!important}
+      .section-head{display:block}
+      .section-head p{margin-top:18px}
+      .services-grid{grid-template-columns:1fr}
+      .gallery{display:grid;grid-template-columns:1fr;grid-template-rows:none}
+      .gallery-card,.gallery-card:first-child{grid-column:auto;min-height:250px}
+      .footer-grid{grid-template-columns:1fr}
+      .mobile-call{display:block}
+      footer{padding-bottom:90px}
+    }
+  </style>
+</head>
+
+<body>
+  <header class="nav-shell">
+    <div class="container nav">
+      <a class="brand" href="#home" aria-label="NIHASH Lawn Care LLC home">
+        <img src="assets/logo.jpeg" alt="NIHASH Lawn Care LLC logo">
+      </a>
+
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#services">Services</a>
+        <a href="#work">Our Work</a>
+        <a href="#why">Why NIHASH</a>
+        <a href="#areas">Service Areas</a>
+      </nav>
+
+      <div class="nav-cta">
+        <a class="btn btn-dark" href="sms:+19417185484">Text Us</a>
+        <a class="btn btn-green" href="tel:+19417185484">Call Now</a>
+        <button class="menu-btn" aria-label="Open navigation" onclick="toggleMenu()">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow">Weekly & Biweekly Lawn Care</span>
+          <h1>Clean lawns.<br><span class="accent">Sharp edges.</span><br>Every visit.</h1>
+          <p class="hero-copy">Professional recurring lawn maintenance for residential and commercial properties across Parrish, Bradenton, Sarasota, Palmetto, Venice and surrounding areas.</p>
+
+          <div class="hero-actions">
+            <a class="btn btn-green" href="tel:+19417185484">Call (941) 718-5484</a>
+            <a class="btn btn-dark" href="sms:+19417185484">Text for a Free Estimate</a>
+          </div>
+
+          <div class="hero-note">
+            <span><i class="dot"></i> Weekly service</span>
+            <span><i class="dot"></i> Biweekly service</span>
+            <span><i class="dot"></i> Residential & commercial</span>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="photo-frame">
+            <img src="assets/hero.jpeg" alt="Freshly maintained lawn by NIHASH Lawn Care LLC">
+          </div>
+          <div class="hero-tag">FREE ESTIMATES</div>
+          <div class="float-card">
+            <strong>Professional Lawn Maintenance</strong>
+            <span>Mowing • Edging • String Trimming • Blowing</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="trust" aria-label="Service highlights">
+      <div class="container trust-grid">
+        <div class="trust-item">
+          <strong>Recurring Service</strong>
+          <span>Built for dependable weekly or biweekly maintenance.</span>
+        </div>
+        <div class="trust-item">
+          <strong>Clean, Detailed Finish</strong>
+          <span>Sharp edges, trimmed borders and a complete blow-off.</span>
+        </div>
+        <div class="trust-item">
+          <strong>Local Service</strong>
+          <span>Serving the Bradenton–Sarasota area and surrounding communities.</span>
+        </div>
+        <div class="trust-item">
+          <strong>Free Estimates</strong>
+          <span>Call or text to get pricing for your property.</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="services">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Our Services</span>
+            <h2>Everything your lawn needs.<br>Nothing it doesn't.</h2>
+          </div>
+          <p>Focused lawn maintenance designed to keep your property consistently clean, crisp and presentable.</p>
+        </div>
+
+        <div class="services-grid">
+          <article class="service-card">
+            <div class="service-num">01</div>
+            <h3>Lawn Mowing</h3>
+            <p>Consistent, professional mowing at the right height for a neat and uniform finish.</p>
+          </article>
+
+          <article class="service-card">
+            <div class="service-num">02</div>
+            <h3>Edging</h3>
+            <p>Defined edges along sidewalks, driveways, curbs and landscape borders.</p>
+          </article>
+
+          <article class="service-card">
+            <div class="service-num">03</div>
+            <h3>String Trimming</h3>
+            <p>Detailed trimming around fences, trees, beds and tight areas your mower can't reach.</p>
+          </article>
+
+          <article class="service-card">
+            <div class="service-num">04</div>
+            <h3>Blowing & Cleanup</h3>
+            <p>Clippings and debris are blown off hard surfaces so the property is left clean.</p>
+          </article>
+
+          <article class="service-card">
+            <div class="service-num">05</div>
+            <h3>Weekly Maintenance</h3>
+            <p>Our most consistent option for properties that need a sharp appearance throughout the growing season.</p>
+          </article>
+
+          <article class="service-card">
+            <div class="service-num">06</div>
+            <h3>Biweekly Maintenance</h3>
+            <p>Reliable recurring lawn care every other week for properties suited to a biweekly schedule.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section work" id="work">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Actual NIHASH Work</span>
+            <h2>Results you can see.</h2>
+          </div>
+          <p>Real properties maintained by NIHASH Lawn Care LLC — no stock photos.</p>
+        </div>
+
+        <div class="gallery">
+          <div class="gallery-card">
+            <img src="assets/lawn-1.jpeg" alt="Freshly mowed residential lawn">
+            <div class="gallery-label">Fresh cut & clean finish</div>
+          </div>
+          <div class="gallery-card">
+            <img src="assets/lawn-2.jpeg" alt="Clean lawn edging">
+            <div class="gallery-label">Sharp edging</div>
+          </div>
+          <div class="gallery-card">
+            <img src="assets/lawn-3.jpeg" alt="Maintained Florida lawn">
+            <div class="gallery-label">Recurring lawn care</div>
+          </div>
+          <div class="gallery-card">
+            <img src="assets/lawn-4.jpeg" alt="Residential lawn service">
+            <div class="gallery-label">Residential service</div>
+          </div>
+          <div class="gallery-card">
+            <img src="assets/lawn-5.jpeg" alt="Professional lawn maintenance">
+            <div class="gallery-label">Detailed property care</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="why">
+      <div class="container why-grid">
+        <div>
+          <span class="eyebrow">Why NIHASH</span>
+          <h2>A lawn company built around consistency.</h2>
+          <p class="lead">The goal is simple: show up, do clean work, and keep your property looking maintained week after week.</p>
+        </div>
+
+        <div class="why-stack">
+          <div class="why-item">
+            <div class="why-icon">01</div>
+            <div>
+              <h3>Recurring Scheduling</h3>
+              <p>Weekly and biweekly service options make it easy to keep your property on a consistent schedule.</p>
+            </div>
+          </div>
+          <div class="why-item">
+            <div class="why-icon">02</div>
+            <div>
+              <h3>Attention to Detail</h3>
+              <p>Mowing is only part of the job — edging, trimming and cleanup complete the professional look.</p>
+            </div>
+          </div>
+          <div class="why-item">
+            <div class="why-icon">03</div>
+            <div>
+              <h3>Easy Communication</h3>
+              <p>Call or text directly when you need an estimate or have a question about your service.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section areas" id="areas">
+      <div class="container area-grid">
+        <div>
+          <span class="eyebrow">Service Area</span>
+          <h2>Local lawn care across Florida's Gulf Coast.</h2>
+          <p class="lead">Currently serving residential and commercial lawn-maintenance clients in:</p>
+          <div class="chips">
+            <span class="chip">Parrish</span>
+            <span class="chip">Bradenton</span>
+            <span class="chip">Palmetto</span>
+            <span class="chip">Sarasota</span>
+            <span class="chip">Venice</span>
+            <span class="chip">Surrounding Areas</span>
+          </div>
+        </div>
+
+        <div class="estimate-box">
+          <span style="font-size:12px;font-weight:900;letter-spacing:.13em">FREE ESTIMATE</span>
+          <h3>Ready for dependable lawn service?</h3>
+          <p>Call or text NIHASH Lawn Care LLC and we'll talk about your property and recurring service options.</p>
+          <a class="btn btn-light" href="tel:+19417185484">Call (941) 718-5484</a>
+          <a class="btn btn-dark" href="sms:+19417185484" style="margin-top:10px">Text Us</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div class="container">
+        <span class="eyebrow">NIHASH Lawn Care LLC</span>
+        <h2>Make your lawn one less thing to worry about.</h2>
+        <p>Dependable weekly and biweekly lawn maintenance with a clean, professional finish every visit.</p>
+        <div class="cta-actions">
+          <a class="btn btn-green" href="tel:+19417185484">Call Now</a>
+          <a class="btn btn-light" href="sms:+19417185484">Text for a Free Estimate</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <img class="footer-logo" src="assets/logo.jpeg" alt="NIHASH Lawn Care LLC">
+          <p>Professional recurring lawn maintenance for residential and commercial properties.</p>
+        </div>
+        <div>
+          <h4>Service</h4>
+          <p>Weekly Lawn Maintenance</p>
+          <p>Biweekly Lawn Maintenance</p>
+          <p>Mowing • Edging • Trimming • Blowing</p>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <p><a href="tel:+19417185484">(941) 718-5484</a></p>
+          <p><a href="sms:+19417185484">Text for a Free Estimate</a></p>
+          <p>Parrish • Bradenton • Sarasota • Palmetto • Venice</p>
+        </div>
+      </div>
+      <div class="copyright">© <span id="year"></span> NIHASH Lawn Care LLC. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <a class="mobile-call" href="tel:+19417185484">CALL NIHASH • (941) 718-5484</a>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    function toggleMenu(){
+      const nav = document.querySelector(".nav-links");
+      if(window.innerWidth > 960) return;
+
+      const open = nav.dataset.open === "true";
+      if(open){
+        nav.style.display = "none";
+        nav.dataset.open = "false";
+      }else{
+        nav.style.display = "flex";
+        nav.style.position = "absolute";
+        nav.style.top = "72px";
+        nav.style.left = "4vw";
+        nav.style.right = "4vw";
+        nav.style.flexDirection = "column";
+        nav.style.alignItems = "stretch";
+        nav.style.gap = "0";
+        nav.style.padding = "10px";
+        nav.style.background = "#0d110d";
+        nav.style.border = "1px solid rgba(255,255,255,.10)";
+        nav.style.borderRadius = "16px";
+        nav.style.boxShadow = "0 20px 60px rgba(0,0,0,.35)";
+        nav.querySelectorAll("a").forEach(a=>{
+          a.style.padding="14px 12px";
+          a.onclick=()=>{nav.style.display="none";nav.dataset.open="false";}
+        });
+        nav.dataset.open = "true";
+      }
+    }
+
+    window.addEventListener("resize", ()=>{
+      const nav = document.querySelector(".nav-links");
+      if(window.innerWidth > 960){
+        nav.removeAttribute("style");
+        nav.dataset.open = "false";
+      }else if(nav.dataset.open !== "true"){
+        nav.style.display = "none";
+      }
+    });
+  </script>
+</body>
+</html>
