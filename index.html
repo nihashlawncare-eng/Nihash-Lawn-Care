@@ -506,6 +506,86 @@
   </div>
 </section>
     
+    <section class="section" id="estimate">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow">FREE ESTIMATE</span>
+        <h2>Request Your Free Lawn Care Estimate.</h2>
+        <p class="lead">Tell us about your property and the service you need. We'll get back to you with a quote.</p>
+      </div>
+    </div>
+
+    <form id="estimateForm" style="max-width:800px;margin:0 auto;">
+      
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;">
+        <input type="text" id="name" placeholder="Full Name" required
+          style="width:100%;padding:16px;border-radius:12px;border:1px solid rgba(255,255,255,.18);background:#111;color:white;font-size:16px;">
+
+        <input type="tel" id="phone" placeholder="Phone Number" required
+          style="width:100%;padding:16px;border-radius:12px;border:1px solid rgba(255,255,255,.18);background:#111;color:white;font-size:16px;">
+      </div>
+
+      <input type="text" id="address" placeholder="Property Address" required
+        style="width:100%;padding:16px;margin-bottom:16px;border-radius:12px;border:1px solid rgba(255,255,255,.18);background:#111;color:white;font-size:16px;">
+
+      <select id="schedule" required
+        style="width:100%;padding:16px;margin-bottom:16px;border-radius:12px;border:1px solid rgba(255,255,255,.18);background:#111;color:white;font-size:16px;">
+        <option value="">Preferred Schedule</option>
+        <option value="Weekly">Weekly</option>
+        <option value="Biweekly">Biweekly</option>
+        <option value="One-Time Service">One-Time Service</option>
+      </select>
+
+      <select id="service" required
+        style="width:100%;padding:16px;margin-bottom:16px;border-radius:12px;border:1px solid rgba(255,255,255,.18);background:#111;color:white;font-size:16px;">
+        <option value="">Service Needed</option>
+        <option value="Lawn Maintenance">Lawn Maintenance</option>
+        <option value="Hedge & Shrub Trimming">Hedge & Shrub Trimming</option>
+        <option value="Mulch Installation">Mulch Installation</option>
+        <option value="Other">Other</option>
+      </select>
+
+      <textarea id="message" rows="5" placeholder="Additional Details"
+        style="width:100%;padding:16px;margin-bottom:16px;border-radius:12px;border:1px solid rgba(255,255,255,.18);background:#111;color:white;font-size:16px;resize:vertical;"></textarea>
+
+      <button type="submit" class="btn btn-green" style="width:100%;">
+        SEND ESTIMATE REQUEST
+      </button>
+
+    </form>
+  </div>
+</section>
+
+<script>
+document.getElementById("estimateForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  const name = document.getElementById("name").value;
+  const phone = document.getElementById("phone").value;
+  const address = document.getElementById("address").value;
+  const schedule = document.getElementById("schedule").value;
+  const service = document.getElementById("service").value;
+  const details = document.getElementById("message").value;
+
+  const message =
+`FREE ESTIMATE REQUEST
+
+Name: ${name}
+Phone: ${phone}
+Property Address: ${address}
+Schedule: ${schedule}
+Service: ${service}
+Details: ${details}`;
+
+  const businessPhone = "19417185484";
+  const separator = /iPhone|iPad|iPod/i.test(navigator.userAgent) ? "&" : "?";
+
+  window.location.href =
+    "sms:+" + businessPhone + separator + "body=" + encodeURIComponent(message);
+});
+</script>
+    
     <section class="section" id="why">
       <div class="container why-grid">
         <div>
